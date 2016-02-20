@@ -13,7 +13,11 @@ $ npm install ami-motley-tool
 ```javascript
 var AmiMotleyTool = require("ami-motley-tool");
 var amt = new AmiMotleyTool();
-var images = amt.getSortedGroupImages({ Name: "Foo", Role: "Web Server" });
+amt.getSortedGroupImages({ Name: "Foo", Role: "Web Server" }).then(function(images) {
+  ...
+}).catch(function(err) {
+  console.log(err);
+});
 ```
 
 ## License
