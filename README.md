@@ -17,13 +17,13 @@ var amt = new AmiMotleyTool();
 amt.getSortedGroupImages({ Name: "Foo", Role: "Web Server" }, "BuildNo").then(function(images) {
   ...
 }).catch(function(err) {
-  console.log(err);
+  console.log(err.stack);
 });
 
 amt.createImageAndSnapshotWithTags({ Name: "ami001", InstanceId: "i-123123123" }).then(function(imageId) {
   ...
 }).catch(function(err) {
-  console.log(err);
+  console.log(err.stack);
 });
 ```
 
