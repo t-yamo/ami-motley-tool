@@ -29,6 +29,32 @@ amt.createImageAndSnapshotWithTags({ Name: "ami001", InstanceId: "i-123123123" }
 });
 ```
 
+## Methods
+
+See [source](lib/ami-motley-tool.js).
+
+### Utility Methods
+
+|method|arg1|arg2|return|description|
+|---|---|---|---|---|
+|getTagValue|description (instance, image, other AWS resources)<br>`{ Xxx: "yyy", Tags: [ { Name: "foo1", Value: "bar1" }, { Name: "foo2", Value: "bar2" } ] }`|key<br>`"foo1"`|`"bar1"` <br>(or null)|get target tag value from description of image or instance.|
+|covertTagsToMap|tags<br>`[ { Name: "foo", Value: "bar" }, { Name: "foo2", Value: "bar2" }... ]`||`{ foo: bar, foo2: bar2 }`|convert tags to map.|
+|getFilters|groupTag<br>`{ foo: "bar", foo2: "bar2" }`||`[ { Name: "tag:foo", Values: [ "bar" ] }, { Name: "tag:foo2", Values: [ "bar2" ] }... ]`|get filters from group.|
+
+
+### AWS Methods
+
+|method|arg1|arg2|return|description|
+|---|---|---|---|---|
+|getGroupImages|groupTag<br>`{ foo: "bar", foo2: "bar2" }`||Promise<br>(images)|get filtered (groupTag) images. groupTag is tag set.|
+|getSortedGroupImages|groupTag<br>`{ foo: "bar", foo2: "bar2" }`|versionTag<br>`"BuildNo"`|Promise<br>(images)|get filtered (groupTag) and sorted (versionTag ASC as string) images. groupTag is tag set.|
+|deleteOldImagesAndSnapshots|groupTag<br>`{ foo: "bar", foo2: "bar2" }`|versionTag<br>`"BuildNo"`|Promise|delete old images and snapshots in target group. (keep latest one)|
+|getUsedImageIds|targetTag<br>`{ foo: "bar", foo2: "bar2" }`||Promise|get used image IDs in target group. (AutoScalingGroup and EC2 Instance)|
+|deleteUnusedImagesAndSnapshots|groupTag<br>`{ foo: "bar", foo2: "bar2" }`|targetTag<br>`{ foo: "bar", foo2: "bar2" }`|Promise|delete unused images and snapshots in target group. (AutoScalingGroup and EC2 Instance)|
+|createImageAndSnapshotWithTags|opts<br>(InstanceId and Name required.<br>[AWS CreateImage Property][aws-create-image-url])||Promise<br>(imageId)|create image and snapshots with tags of target instance. Tag keys starting with "aws:" are reserved.|
+|setTagsToImage|imageId|tags|Promise|set tags to image.|
+|setTagsToSnapshot|imageId|tags|Promise|set tags to snapshot.|
+
 ## License
 
 ```
@@ -49,3 +75,4 @@ limitations under the License.
 
 [npm-image]:https://badge.fury.io/js/ami-motley-tool.svg
 [npm-url]:https://badge.fury.io/js/ami-motley-tool
+[aws-create-image-url]:http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EC2.html#createImage-property
