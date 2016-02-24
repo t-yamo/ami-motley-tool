@@ -73,6 +73,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-[npm-image]:https://badge.fury.io/js/ami-motley-tool.svg?t=20160223
+[npm-image]:https://badge.fury.io/js/ami-motley-tool.svg?t=20160225
 [npm-url]:https://badge.fury.io/js/ami-motley-tool
 [aws-create-image-url]:http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EC2.html#createImage-property
