@@ -1,6 +1,6 @@
 {
   "name": "ami-motley-tool",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Utility methods for AMI.",
   "author": "t-yamo",
   "license": "Apache-2.0",
