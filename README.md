@@ -41,7 +41,6 @@ See [source](lib/ami-motley-tool.js).
 |covertTagsToMap|tags<br>`[ { Name: "foo", Value: "bar" }, { Name: "foo2", Value: "bar2" }... ]`||`{ foo: bar, foo2: bar2 }`|convert tags to map.|
 |getFilters|groupTag<br>`{ foo: "bar", foo2: "bar2" }`||`[ { Name: "tag:foo", Values: [ "bar" ] }, { Name: "tag:foo2", Values: [ "bar2" ] }... ]`|get filters from group.|
 
-
 ### AWS Methods
 
 |method|arg1|arg2|return|description|
