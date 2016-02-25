@@ -54,6 +54,7 @@ See [source](lib/ami-motley-tool.js).
 |createImageAndSnapshotWithTags|opts<br>(InstanceId and Name required.<br>[AWS CreateImage Property][aws-create-image-url])||Promise<br>(imageId)|create image and snapshots with tags of target instance. Tag keys starting with "aws:" are reserved.|
 |setTagsToImage|imageId|tags|Promise|set tags to image.|
 |setTagsToSnapshot|imageId|tags|Promise|set tags to snapshot.|
+|waitAvailableAmi|imageId|callbackWait|Promise<br>true:AMI launched.<br>false:AMI launch failed.)|wait available AMI.|
 
 ## License
 
