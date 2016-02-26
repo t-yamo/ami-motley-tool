@@ -22,7 +22,7 @@ amt.getSortedGroupImages({ Name: "Foo", Role: "Web Server" }, "BuildNo").then(fu
   console.log(err.stack);
 });
 
-amt.createImageAndSnapshotWithTags({ Name: "ami001", InstanceId: "i-123123123" }, function() { console.log("waiting AMI..."); }).then(function(imageId) {
+amt.createImageAndSnapshotWithTags({ Name: "ami001", InstanceId: "i-123123123" }, function() { console.log("wait for creating AMI..."); }).then(function(imageId) {
   ...
 }).catch(function(err) {
   console.log(err.stack);
